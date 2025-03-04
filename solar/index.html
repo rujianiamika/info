@@ -1,85 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar System Learning</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembelajaran Tata Surya</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <header>
-        <h1>Solar System Learning</h1>
-        <nav>
-            <ul>
-                <li><a href="#animation">Animation</a></li>
-                <li><a href="#info">Information</a></li>
-                <li><a href="#facts">Facts</a></li>
-            </ul>
-        </nav>
+      <h1>Pembelajaran Tata Surya</h1>
+      <nav>
+        <ul>
+          <li><a href="#animation">Animasi</a></li>
+          <li><a href="#info">Informasi</a></li>
+          <li><a href="#facts">Fakta</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-        <section id="animation">
-            <h2>Solar System Animation</h2>
-            <div class="solar-system">
-                <div class="sun"></div>
-                <div class="earth-orbit">
-                    <div class="earth">
-                        <div class="moon-orbit">
-                            <div class="moon"></div>
-                        </div>
-                    </div>
-                </div>
+      <section id="animation">
+        <h2>Animasi Tata Surya</h2>
+        <div class="solar-system">
+          <div class="sun"></div>
+          <div class="earth-orbit">
+            <div class="earth">
+              <div class="moon-orbit">
+                <div class="moon"></div>
+              </div>
             </div>
-            <div class="controls">
-                <button id="pause-btn">Pause</button>
-                <div class="speed-control">
-                    <label for="speed-slider">Animation Speed:</label>
-                    <input type="range" id="speed-slider" min="0.1" max="5" step="0.1" value="1">
-                    <span id="speed-value">1x</span>
-                </div>
-            </div>
-        </section>
+          </div>
+        </div>
+        <div class="controls">
+          <button id="pause-btn">Jeda</button>
+          <div class="speed-control">
+            <label for="speed-slider">Kecepatan Animasi:</label>
+            <input
+              type="range"
+              id="speed-slider"
+              min="0.1"
+              max="5"
+              step="0.1"
+              value="1"
+            />
+            <span id="speed-value">1x</span>
+          </div>
+        </div>
+      </section>
 
-        <section id="info">
-            <h2>Celestial Bodies Information</h2>
-            <div class="info-cards">
-                <div class="card">
-                    <h3>Sun</h3>
-                    <p>The Sun is the star at the center of our Solar System. It rotates on its axis once in about 25-35 days.</p>
-                    <p>Diameter: 1,392,700 km (109 times Earth's diameter)</p>
-                </div>
-                <div class="card">
-                    <h3>Earth</h3>
-                    <p>Earth orbits the Sun once every 365.25 days and rotates on its axis once every 24 hours.</p>
-                    <p>Diameter: 12,742 km</p>
-                    <p>Distance from Sun: 149.6 million km</p>
-                </div>
-                <div class="card">
-                    <h3>Moon</h3>
-                    <p>The Moon orbits Earth once every 27.3 days and rotates on its axis at the same rate, which is why we always see the same side.</p>
-                    <p>Diameter: 3,474 km</p>
-                    <p>Distance from Earth: 384,400 km</p>
-                </div>
-            </div>
-        </section>
+      <section id="info">
+        <h2>Informasi Benda Langit</h2>
+        <div class="info-cards">
+          <div class="card">
+            <h3>Matahari</h3>
+            <p>
+              Matahari adalah bintang yang berada di pusat Tata Surya kita.
+              Matahari berputar pada porosnya sekali dalam sekitar 25-35 hari.
+            </p>
+            <p>Diameter: 1.392.700 km (109 kali diameter Bumi)</p>
+          </div>
+          <div class="card">
+            <h3>Bumi</h3>
+            <p>
+              Bumi mengorbit Matahari sekali setiap 365,25 hari dan berputar
+              pada porosnya sekali setiap 24 jam.
+            </p>
+            <p>Diameter: 12.742 km</p>
+            <p>Jarak dari Matahari: 149,6 juta km</p>
+          </div>
+          <div class="card">
+            <h3>Bulan</h3>
+            <p>
+              Bulan mengorbit Bumi sekali setiap 27,3 hari dan berputar pada
+              porosnya dengan kecepatan yang sama, itulah sebabnya kita selalu
+              melihat sisi yang sama.
+            </p>
+            <p>Diameter: 3.474 km</p>
+            <p>Jarak dari Bumi: 384.400 km</p>
+          </div>
+        </div>
+      </section>
 
-        <section id="facts">
-            <h2>Interesting Facts</h2>
-            <ul class="fact-list">
-                <li>The Earth rotates at about 1,670 km/h at the equator.</li>
-                <li>The Moon is moving away from Earth at a rate of 3.8 cm per year.</li>
-                <li>The Sun contains 99.86% of the mass in the Solar System.</li>
-                <li>The Earth's orbit around the Sun is not a perfect circle but an ellipse.</li>
-                <li>The Moon's synchronous rotation means it takes the same amount of time to rotate on its axis as it does to orbit Earth.</li>
-            </ul>
-        </section>
+      <section id="facts">
+        <h2>Fakta Menarik</h2>
+        <ul class="fact-list">
+          <li>
+            Bumi berputar dengan kecepatan sekitar 1.670 km/jam di khatulistiwa.
+          </li>
+          <li>Bulan menjauh dari Bumi dengan kecepatan 3,8 cm per tahun.</li>
+          <li>Matahari mengandung 99,86% massa di Tata Surya.</li>
+          <li>
+            Orbit Bumi mengelilingi Matahari bukanlah lingkaran sempurna
+            melainkan elips.
+          </li>
+          <li>
+            Rotasi sinkron Bulan berarti waktu yang dibutuhkan untuk berputar
+            pada porosnya sama dengan waktu yang dibutuhkan untuk mengorbit
+            Bumi.
+          </li>
+        </ul>
+      </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 Solar System Learning. Educational purposes only.</p>
+      <p>
+        &copy; 2025 Pembelajaran Tata Surya. Hanya untuk tujuan pendidikan.
+        Created ops1wtg
+      </p>
     </footer>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

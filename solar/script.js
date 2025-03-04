@@ -8,15 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const moonOrbit = document.querySelector('.moon-orbit');
     const moon = document.querySelector('.moon');
     const sun = document.querySelector('.sun');
-    
     // Add eclipse control buttons
     const controlsDiv = document.querySelector('.controls');
     const eclipseControls = document.createElement('div');
     eclipseControls.className = 'eclipse-controls';
     eclipseControls.innerHTML = `
-        <button id="lunar-eclipse-btn">Show Lunar Eclipse</button>
-        <button id="solar-eclipse-btn">Show Solar Eclipse</button>
-        <button id="reset-eclipse-btn">Reset Normal Orbit</button>
+        <button id="lunar-eclipse-btn">Tampilkan Gerhana Bulan</button>
+        <button id="solar-eclipse-btn">Tampilkan Gerhana Matahari</button>
+        <button id="reset-eclipse-btn">Kembalikan Orbit Normal</button>
     `;
     controlsDiv.appendChild(eclipseControls);
     
@@ -132,20 +131,20 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (eclipseType === 'lunar') {
             explanation.innerHTML = `
-                <h3>Lunar Eclipse</h3>
-                <p>A lunar eclipse occurs when the Earth comes between the Sun and the Moon, 
-                blocking sunlight from reaching the Moon. The Earth casts its shadow on the Moon, 
-                causing it to darken and sometimes appear reddish.</p>
-                <p>Lunar eclipses can only happen during a full moon when the Moon is on the opposite 
-                side of the Earth from the Sun.</p>
+                <h3>Gerhana Bulan</h3>
+                <p>Gerhana bulan terjadi ketika Bumi berada di antara Matahari dan Bulan, 
+                menghalangi sinar matahari mencapai Bulan. Bumi melemparkan bayangannya pada Bulan, 
+                menyebabkan Bulan menjadi gelap dan terkadang tampak kemerahan.</p>
+                <p>Gerhana bulan hanya dapat terjadi saat bulan purnama ketika Bulan berada di sisi 
+                berlawanan dari Bumi terhadap Matahari.</p>
             `;
         } else if (eclipseType === 'solar') {
             explanation.innerHTML = `
-                <h3>Solar Eclipse</h3>
-                <p>A solar eclipse occurs when the Moon comes between the Earth and the Sun, 
-                casting a shadow on Earth and blocking the Sun's light.</p>
-                <p>Solar eclipses can only happen during a new moon when the Moon is between 
-                the Earth and the Sun.</p>
+                <h3>Gerhana Matahari</h3>
+                <p>Gerhana matahari terjadi ketika Bulan berada di antara Bumi dan Matahari, 
+                melemparkan bayangan pada Bumi dan menghalangi cahaya Matahari.</p>
+                <p>Gerhana matahari hanya dapat terjadi saat bulan baru ketika Bulan berada di antara 
+                Bumi dan Matahari.</p>
             `;
         }
         
@@ -209,19 +208,16 @@ document.addEventListener('DOMContentLoaded', function() {
     celestialBodies.forEach(body => {
         body.element.setAttribute('title', `${body.name}: ${body.info}`);
     });
-    
-    // Add some facts that change periodically
     const facts = [
-        "The Earth travels at about 107,000 km/h in its orbit around the Sun.",
-        "The Moon is about 1/4 the diameter of Earth.",
-        "The Sun is so large that about 1.3 million Earths could fit inside it.",
-        "The Earth's axis is tilted at 23.5 degrees, which causes our seasons.",
-        "The Moon's gravity is responsible for most of Earth's tides.",
-        "A lunar eclipse can last up to 3 hours and 40 minutes.",
-        "A total solar eclipse can only be seen from a small area on Earth.",
-        "Solar eclipses happen somewhere on Earth about 2-5 times per year."
+        "Bumi bergerak dengan kecepatan sekitar 107.000 km/jam dalam orbitnya mengelilingi Matahari.",
+        "Bulan memiliki diameter sekitar 1/4 dari diameter Bumi.",
+        "Matahari sangat besar sehingga sekitar 1,3 juta Bumi dapat muat di dalamnya.",
+        "Sumbu Bumi miring 23,5 derajat, yang menyebabkan terjadinya musim.",
+        "Gravitasi Bulan bertanggung jawab atas sebagian besar pasang surut di Bumi.",
+        "Gerhana bulan dapat berlangsung hingga 3 jam 40 menit.",
+        "Gerhana matahari total hanya dapat dilihat dari area kecil di Bumi.",
+        "Gerhana matahari terjadi di suatu tempat di Bumi sekitar 2-5 kali per tahun."
     ];
-    
     const factList = document.querySelector('.fact-list');
     let factIndex = 0;
     
