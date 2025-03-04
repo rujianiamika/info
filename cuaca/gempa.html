@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Gempa BMKG</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f0f2f5;
+        padding: 2rem 0;
+        font-family: "Roboto", sans-serif;
+      }
+
+      .card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .info-item {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 0;
+      }
+
+      .label {
+        font-weight: 500;
+        width: 140px;
+        position: relative;
+      }
+
+      .label::after {
+        content: ":";
+        position: absolute;
+        right: 0;
+      }
+
+      .shakemap-img {
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 1rem;
+        }
+
+        .info-item {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .label::after {
+          content: "";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center text-primary mb-4">Informasi Gempa</h1>
+      <main>
+        <section>
+          <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+              <h5 class="card-title mb-4">Informasi Gempa</h2>
+              <p class="card-text">
+                Data Informasi Gempa Bumi bersumber dari data BMKG (Badan
+                Meteorologi, Klimatologi, dan Geofisika)
+              </p>
+              <a href="index.html" class="btn btn-info stretched-link">Home</a>
+            </div>
+          </div>
+        </section>
+      </main>
+   
+
+      <div id="loading-message" class="text-center">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-2">Memuat data gempa...</p>
+      </div>
+
+      <div id="earthquake-info" class="card" style="display: none">
+        <div class="card-body">
+          <h2 class="card-title mb-4">Detail Gempa:</h2>
+          <div class="info-item">
+            <span class="label">Tanggal</span>
+            <span id="tanggal"></span>
+          </div>
+          <div class="info-item">
+            <span class="label">Jam</span>
+            <span id="jam"></span>
+          </div>
+          <div class="info-item">
+            <span class="label">Waktu (UTC)</span>
+            <span id="datetime"></span>
+          </div>
+          <div class="info-item">
+            <span class="label">Koordinat</span>
+            <span id="coordinates"></span>
+          </div>
+          <div class="info-item">
+            <span class="label">Lintang</span>
+            <span id="lintang"></span>
+          </div>
+          <div class="info-item">
+            <span class="label">Bujur</span>
+            <span id="bujur"></span>
+          </div>
+          <div class="info-item">
+            <span class="label">Magnitudo</span>
+            <span id="magnitude"></span>
+          </div>
+          <div class="info-item">
+            <span class="label">Kedalaman</span>
+            <span id="kedalaman"></span>
+          </div>
+          <div class="info-item">
+            <span class="label">Wilayah</span>
+            <span id="wilayah"></span>
+          </div>
+          <div class="info-item">
+            <span class="label">Potensi</span>
+            <span id="potensi"></span>
+          </div>
+          <div class="info-item">
+            <span class="label">Dirasakan</span>
+            <span id="dirasakan"></span>
+          </div>
+          <div class="mt-4">
+            <h5 class="mb-3">Shakemap:</h5>
+            <img id="shakemap" alt="Shakemap Gempa" class="shakemap-img" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+       <!-- Add Footer -->
+       <footer class="text-center text-muted py-4 mt-5 border-top">
+        Created by OPS | WTG @ 2025
+        <a
+          href="https://aazeenkirani.com"
+          class="text-decoration-none ms-1"
+          target="_blank"
+          rel="noopener"
+        >
+          aazeenkirani.com
+        </a>
+      </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Fungsi untuk mendapatkan data gempa dari API BMKG
+      async function getEarthquakeData() {
+        const url = "https://data.bmkg.go.id/DataMKG/TEWS/autogempa.json";
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          const data = await response.json();
+
+          // Menampilkan pesan loading saat memuat data
+          const loadingMessage = document.getElementById("loading-message");
+          loadingMessage.style.display = "none"; // Sembunyikan pesan loading
+
+          // Mengambil data gempa dari respons JSON
+          const earthquake = data.Infogempa.gempa;
+
+          // Menampilkan data gempa di halaman web
+          document.getElementById("tanggal").textContent = earthquake.Tanggal;
+          document.getElementById("jam").textContent = earthquake.Jam;
+          document.getElementById("datetime").textContent = earthquake.DateTime;
+          document.getElementById("coordinates").textContent =
+            earthquake.Coordinates;
+          document.getElementById("lintang").textContent = earthquake.Lintang;
+          document.getElementById("bujur").textContent = earthquake.Bujur;
+          document.getElementById("magnitude").textContent =
+            earthquake.Magnitude;
+          document.getElementById("kedalaman").textContent =
+            earthquake.Kedalaman;
+          document.getElementById("wilayah").textContent = earthquake.Wilayah;
+          document.getElementById("potensi").textContent = earthquake.Potensi;
+          document.getElementById("dirasakan").textContent =
+            earthquake.Dirasakan;
+
+          // Menampilkan gambar shakemap
+          const shakemapUrl = `https://data.bmkg.go.id/DataMKG/TEWS/${earthquake.Shakemap}`;
+          document.getElementById("shakemap").src = shakemapUrl;
+
+          // Tampilkan kontainer informasi gempa
+          document.getElementById("earthquake-info").style.display = "block";
+        } catch (error) {
+          console.error("Terjadi kesalahan:", error);
+          document.getElementById("loading-message").textContent =
+            "Gagal memuat data gempa.";
+        }
+      }
+
+      // Panggil fungsi untuk memuat data gempa saat halaman dimuat
+      getEarthquakeData();
+    </script>
+  </body>
+</html>
