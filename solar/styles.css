@@ -1,0 +1,268 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+header {
+    background-color: #1a1a2e;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 1rem 0;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00b4d8;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    color: #00b4d8;
+}
+
+/* Solar System Animation */
+.solar-system {
+    position: relative;
+    height: 500px;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sun {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #ff9d00, #ff4500);
+    border-radius: 50%;
+    box-shadow: 0 0 50px #ff9d00;
+    z-index: 10;
+}
+
+.earth-orbit {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: orbit 36.5s linear infinite;
+}
+
+.earth {
+    position: absolute;
+    top: -15px;
+    left: 140px;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, #2273bd, #4fc3f7);
+    border-radius: 50%;
+    animation: rotate 2.4s linear infinite;
+}
+
+.moon-orbit {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 50px;
+    height: 50px;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: orbit 2.7s linear infinite;
+}
+
+.moon {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #d3d3d3;
+    border-radius: 50%;
+    animation: rotate 2.7s linear infinite;
+}
+
+@keyframes orbit {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background-color: #00b4d8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+button:hover {
+    background-color: #0077b6;
+}
+
+.speed-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Info Cards */
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: #1a1a2e;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Fact List */
+.fact-list {
+    list-style-position: inside;
+    padding-left: 1rem;
+}
+
+.fact-list li {
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #1a1a2e;
+    color: white;
+    margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .solar-system {
+        height: 400px;
+    }
+    
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Add these styles to your existing CSS file */
+
+/* Eclipse Controls */
+.eclipse-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+/* Eclipse Effects */
+.moon.eclipsed {
+    background-color: #8b0000;
+    box-shadow: 0 0 5px #8b0000;
+    opacity: 0.7;
+}
+
+.sun.eclipsed-by-moon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 90%;
+    background-color: #121212;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+}
+
+/* Eclipse Explanation */
+.eclipse-explanation {
+    background-color: rgba(26, 26, 46, 0.8);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border-left: 4px solid #00b4d8;
+}
+
+.eclipse-explanation h3 {
+    color: #00b4d8;
+    margin-bottom: 0.5rem;
+}
+
+/* Animation for facts */
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.dynamic-fact {
+    animation: fadeInOut 10s;
+}
