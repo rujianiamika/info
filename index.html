@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
+    <title>Murotal Al-Quran</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts for Arabic -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Murotal Al-Quran</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/cuaca/">Prakiraan Cuaca</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cuaca/gempa.html">Infogempa</a>
+            </li>
+            <!-- Dark mode toggle for mobile -->
+            <li class="nav-item d-lg-none mt-2">
+              <button id="dark-mode-toggle-mobile" class="btn btn-outline-secondary w-100">
+                <i class="bi bi-moon"></i> Dark Mode
+              </button>
+            </li>
+          </ul>
+        </div>
+        <!-- Dark mode toggle for desktop -->
+        <div class="d-none d-lg-flex">
+          <button id="dark-mode-toggle" class="btn btn-outline-secondary">
+            <i class="bi bi-moon"></i>
+            <span class="d-none d-sm-inline">Dark Mode</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-5">
+      <!-- Add this right after the container opening -->
+      <div class="container mt-5">
+        <h1 class="text-center text-primary">Murotal Al-Quran</h1>
+        <p class="text-center text-muted">
+          Pilih surat untuk mendengarkan murotal dan membaca ayat-ayatnya.
+        </p>
+
+        <!-- Controls Row -->
+        <div class="row mb-4">
+          <div class="col-md-4">
+            <div class="input-group">
+              <input
+                type="text"
+                id="search-input"
+                class="form-control"
+                placeholder="Cari surat..."
+              />
+              <button class="btn btn-primary" type="button">
+                <i class="bi bi-search"></i> Cari
+              </button>
+            </div>
+          </div>
+          <div class="col-md-8 text-end">
+            <button
+              class="btn btn-primary mb-4"
+              onclick="backToList()"
+              style="display: none"
+              id="back-button"
+            >
+              ← Kembali ke Daftar Surat
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div id="main-content">
+        <!-- Daftar Surat -->
+        <div id="surat-list" class="row mt-4"></div>
+
+        <!-- Detail Surat (Initially Hidden) -->
+        <div id="surah-detail" class="mt-4 hidden">
+          <h2 id="surah-title" class="mb-3"></h2>
+          <p id="surah-description" class="text-muted mb-4"></p>
+          <div id="ayat-list"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Remove the button from here -->
+    <footer class="text-center text-muted py-4 mt-5 border-top">
+      Created by OPS | WTG @ 2025
+      <a
+        href="https://aazeenkirani.com"
+        class="text-decoration-none ms-1"
+        target="_blank"
+        rel="noopener"
+      >
+        aazeenkirani.com
+      </a>
+    </footer>
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+  </body>
+</html>
